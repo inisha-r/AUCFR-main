@@ -1,15 +1,17 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "app.py",
-      "use": "@vercel/python"
+      "src": "ml/requirements.txt",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ]
+  "env": {
+    "PYTHON_VERSION": "3.12"
+  },
+  "hooks": {
+    "build": "pip install python3-distutils && pip install -r ml/requirements.txt"
+  }
 }

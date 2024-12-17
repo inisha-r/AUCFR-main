@@ -56,7 +56,7 @@ const Settings = () => {
     setError(null);
     console.log(userData);
     try {
-      const response = await axios.post('http://localhost:5100/api/user/storeuserdetail', userData);
+      const response = await axios.post('https://aucfr-main-server.vercel.app/api/user/storeuserdetail', userData);
       setSuccess(true);
       console.log('Response:', response.data);
     } catch (err) {

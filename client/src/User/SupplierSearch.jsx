@@ -12,7 +12,7 @@ const SupplierSearch = () => {
   useEffect(() => {
     const fetchSupplierData = async () => {
       try {
-        const response = await axios.get("http://localhost:5100/api/supplier/fetchsupplierdata");
+        const response = await axios.get("https://aucfr-main-server.vercel.app/api/supplier/fetchsupplierdata");
 
         const names = response.data.supplierData.map((data) => ({ name: data.name }));
 

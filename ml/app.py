@@ -57,6 +57,10 @@ def calculate_distance_to_gurgaon(city):
     gurgaon_coords = city_coords.get('Gurgaon', (28.4595, 77.0266))
     return geodesic(gurgaon_coords, city_coords.get(city, gurgaon_coords)).kilometers
 
+@app.route('/predict', methods=['GET'])
+def greet():
+    print("Hello")
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:

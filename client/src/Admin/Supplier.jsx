@@ -38,7 +38,7 @@ const Supplier = () => {
   useEffect(()=>{
      const fetchSupplierData=async()=>{
           try{
-            const supplierData=await axios.get("http://localhost:5100/api/supplier/fetchsupplierdata");
+            const supplierData=await axios.get("https://aucfr-main-server.vercel.app/api/supplier/fetchsupplierdata");
             setSuppliers(supplierData.data.supplierData);
           }
           catch(err){
@@ -116,7 +116,7 @@ const Supplier = () => {
     if (selectedSupplier) {
       try {
         console.log(formData);
-        await axios.patch(`http://localhost:5100/api/supplier/updatesupplier?id=${selectedSupplier._id}`,formData);
+        await axios.patch(`https://aucfr-main-server.vercel.app/api/supplier/updatesupplier?id=${selectedSupplier._id}`,formData);
       }
       catch(err){
         console.log(err);
@@ -128,7 +128,7 @@ const Supplier = () => {
       ]);
       console.log(newSupplierData);
       try {
-        const response = await axios.post("http://localhost:5100/api/supplier/addnewsupplier",newSupplierData);
+        const response = await axios.post("https://aucfr-main-server.vercel.app/api/supplier/addnewsupplier",newSupplierData);
         console.log(response);
       }
       catch(err){

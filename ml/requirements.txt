@@ -1,0 +1,6 @@
+flask
+sklearn
+xgboost
+geopy
+flask_cors
+pymongo

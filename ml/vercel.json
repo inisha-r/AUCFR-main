@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "ml/requirements.txt",
+      "src": "app.py",  
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/hello",
-      "dest": "/app.py"
+      "dest": "/app.py"  
     }
   ],
   "env": {

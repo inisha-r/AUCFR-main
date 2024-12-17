@@ -2,11 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",
+      "src": "ml/requirements.txt",
       "use": "@vercel/python"
     }
   ],
   "env": {
-    "PYTHON_VERSION": "3.10"
+    "PYTHON_VERSION": "3.12"
+  },
+  "build": {
+    "env": {
+      "BUILD_SCRIPT": "./install.sh"
+    }
   }
 }

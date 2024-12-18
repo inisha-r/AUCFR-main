@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FaEye, FaArrowLeft } from 'react-icons/fa';
-
+import { extractFeatures } from '../featureExtractor';
 
 const TopSupplier = () => {
   const location = useLocation();
@@ -11,17 +11,21 @@ const TopSupplier = () => {
   const rankedData = location.state.response || {};
   const boq = location.state.boq || "";
 
-  // console.log("hello", rankedData)
+
   const handleBack = () => {
-    navigate("/user/product-search")
+    navigate("/user/product-search");
   };
 
   const handleProceed = () => {
-    navigate('/user/display', {
-      state: {
-        response: rankedData,boq:boq
-      },
-    });
+    const boqresult = extractFeatures(boq);
+
+    if (boqresult != null) {
+      navigate('/user/display', {
+        state: {
+          response: rankedData, boq: boqresult
+        },
+      });
+    }
   };
 
   return (

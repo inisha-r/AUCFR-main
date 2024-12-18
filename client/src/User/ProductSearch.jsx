@@ -147,7 +147,7 @@ const ProductSearch = () => {
    // console.log("data123", boqText, selectedCity,selectedOption);
     if (boqText && selectedCity && selectedOption) {
       try {
-        const response = await fetch('http://localhost:5000/predict', {
+        const response = await fetch('https://aucfr-main-backend.onrender.com/predict', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

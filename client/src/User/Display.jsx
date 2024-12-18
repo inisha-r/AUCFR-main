@@ -10,7 +10,7 @@ const Display = () => {
 
     const rankedData = location.state.response || {};
     const boq = location.state.boq || null;
-    //console.log(boq, typeof (boq));
+    console.log(boq);
     const handleBack = () => {
         navigate("/user/product-search");
     };

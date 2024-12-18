@@ -9,8 +9,8 @@ const Display = () => {
     const printRef = useRef();
 
     const rankedData = location.state.response || {};
-    const boq = location.state.boq || "";
-
+    const boq = location.state.boq || null;
+    //console.log(boq, typeof (boq));
     const handleBack = () => {
         navigate("/user/product-search");
     };
@@ -18,14 +18,14 @@ const Display = () => {
     const handlePrint = () => {
         const content = printRef.current;
         const printWindow = window.open('', '', 'height=800,width=800');
-        
+
         printWindow.document.write('<html><head><title>AUCFR</title>');
         printWindow.document.write('<style>body{font-family: Arial, sans-serif;}</style>');
         printWindow.document.write('<style>@media print { body { background-color: white; } }</style>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(content.innerHTML);
         printWindow.document.write('</body></html>');
-        
+
         printWindow.document.close();
         printWindow.print();
     };
@@ -39,12 +39,29 @@ const Display = () => {
                 <FaArrowLeft className="mr-2" />
                 Back
             </button>
-            
+
             <div className="mt-[24px] ml-[10px] p-4" ref={printRef}>
                 <div className="border p-4 mb-4 shadow-md">
                     <h2 className="text-2xl font-bold">BOQ</h2>
                     <br />
-                    <p>{boq}</p>
+
+                    <div style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc' }}>
+                        <h3><strong>Air Gap:</strong> {boq.AirGap}</h3>
+                        <p><strong>Approved Makes:</strong> {boq.ApprovedMakes}</p>
+                        <p><strong>Codal Reference:</strong> {boq.CodalReference}</p>
+                        <p><strong>Glass:</strong> {boq.Glass}</p>
+                        <p><strong>Minimum Thickness:</strong> {boq.MinThickness}</p>
+                        <p><strong>Primary Sealant:</strong> {boq.PrimarySealant}</p>
+                        <p><strong>Reflective Coating:</strong> {boq.ReflectiveCoating || 'Not Applicable'}</p>
+                        <p><strong>Secondary Sealant:</strong> {boq.SecondarySiliconSealant}</p>
+                        <p><strong>Series:</strong> {boq.Series || 'Not Specified'}</p>
+                        <p><strong>Spacer:</strong> {boq.Spacer}</p>
+                        <p><strong>Special Bend Shape:</strong> {boq.SpecialBendShape}</p>
+                        <p><strong>Special Seal:</strong> {boq.SpecialSeal}</p>
+                        <p><strong>Special Treatment:</strong> {boq.SpecialTreatment}</p>
+                    </div>
+
+
                 </div>
 
                 <div>

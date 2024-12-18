@@ -2,22 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.py",  
+      "src": "app.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/hello",
-      "dest": "/app.py"  
+      "src": "/(.*)",
+      "dest": "app.py"
     }
-  ],
-  "env": {
-    "PYTHON_VERSION": "3.11"  
-  },
-  "build": {
-    "env": {
-      "BUILD_SCRIPT": "./install.sh"
-    }
-  }
+  ]
 }
